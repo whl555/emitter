@@ -1,5 +1,6 @@
 import { EventEmitter, EventHandler, EventListener } from "./types";
 
+export type { EventEmitter, EventHandler, EventListener };
 
 export function createEventEmitter<T extends Record<string, unknown>>(): EventEmitter<T> {
   const listeners: EventListener<T, any>[] = [];
