@@ -1,4 +1,4 @@
-import { createEventEmitter } from "../src";
+import { createEventEmitter } from "../dist/index.esm.js";
 
 type AppEvents = {
   "user:greet": { name: string };
@@ -33,10 +33,18 @@ async function runExample() {
   const results = await emitter.emit("math:add", { a: 2, b: 3 });
   console.log("Received async results:", results);
 
-  await emitter.emit("timer:tick", 500);
+  emitter.emit("timer:tick", 500).then((results) => {
+    console.log("Received async results:", results);
+  }).catch((error) => {
+    console.error("Error:", error);
+  });
 
   emitter.off("user:greet", greet);
-  emitter.emit("user:greet", { name: "Emitter" });
+  emitter.emit("user:greet", { name: "Emitter" }).then((results) => {
+    console.log("Received async results:", results);
+  }).catch((error) => {
+    console.error("Error:", error);
+  });
 }
 
 runExample();

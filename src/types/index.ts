@@ -2,7 +2,7 @@
  * T: The type of the event data.
  */
 export interface EventEmitter<T extends Record<string, unknown>> {
-  emit<K extends keyof T>(event: K, data: T[K]): void;
+  emit<K extends keyof T>(event: K, data: T[K]): Promise<unknown[]>;
   on<K extends keyof T>(event: K, handler: EventHandler<T[K]>): void;
   off<K extends keyof T>(event: K, handler: EventHandler<T[K]>): void;
 }
