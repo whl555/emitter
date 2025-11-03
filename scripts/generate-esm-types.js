@@ -7,3 +7,4 @@ const content = `export * from "./index";\n`;
 fs.writeFileSync(esmTypeFile, content, 'utf-8');
 console.log('Generated dist/index.esm.d.ts');
 
+
