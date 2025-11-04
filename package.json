@@ -1,6 +1,6 @@
 {
   "name": "holly-emitter",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "description": "holly-emitter SDK",
   "license": "MIT",
   "author": "holly",
@@ -27,7 +27,7 @@
   "sideEffects": false,
   "scripts": {
     "clean": "rimraf dist",
-    "build": "npm run clean && rollup -c",
+    "build": "npm run clean && rollup -c && node scripts/generate-esm-types.js",
     "dev": "tsc -w",
     "test": "jest",
     "lint": "eslint src/**/*.ts",
